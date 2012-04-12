@@ -1,0 +1,59 @@
+<head>
+  <title>gimmegimme</title>
+</head>
+
+<body id="outer">
+  {{> title}}
+
+  {{> add_item}}
+
+  {{> list}}
+</body>
+
+<template name="title">
+  <div class="title">
+    <h1>{{greeting}}</h1>
+  </div>
+</template>
+
+<template name="add_item">
+	<div class="add_item">
+		<table>
+			<tr>
+				<td>Name*:</td>
+				<td><input type="text" name="item_name" id="item_name"></td>
+			</tr>
+			<tr>
+				<td>Desc:</td>
+				<td><textarea name="item_description" id="item_description"></textarea></td>
+			</tr>
+			<tr>
+				<td>Link:</td>
+				<td><input type="text" name="item_link" id="item_link"/></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align:right;"><input type="button" value="Add Item"/></td>
+			</tr>
+	    </table>
+	</div>
+</template>
+
+<template name="list">
+	<div class="list">
+	{{#each items}}
+      {{> item}}
+    {{/each}}
+	</div>
+</template>
+
+<template name="item">
+	<div class="item">
+		<span class="name">{{name}}</span>
+		{{#if link}}
+		<span class="link"><a href="{{link}}" target="_blank">WWW</a></span>
+		{{/if}}
+		{{#if description}}
+		<span class="description">{{description}}</span>
+		{{/if}}
+	</div>
+</template>
